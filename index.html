@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cutest Corner ✨ | Personal Journal</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Mali:ital,wght@0,400;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        creamBg: '#FFFDF9',
+                        softPink: '#FFD6E0',
+                        bubblePink: '#FF9EBB',
+                        hotPink: '#FF4D80',
+                        pastelPurple: '#E2D4F9',
+                        deepPurple: '#7B52B9',
+                        mintGreen: '#C1F0C1',
+                        softYellow: '#FFF1C5',
+                        softCyan: '#C3F5FF',
+                        darkText: '#332C39'
+                    },
+                    fontFamily: {
+                        fredoka: ['Fredoka', 'sans-serif'],
+                        mali: ['Mali', 'cursive'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen pb-24 overflow-x-hidden selection:bg-hotPink selection:text-white" onclick="spawnEmojiShower(event)">
+
+    <!-- Audio Lokal (disesuaikan dengan folder music) -->
+    <audio id="myAudio" loop>
+      <source src="music/syfa.mp3" type="audio/mpeg">
+      Browser kamu tidak mendukung audio.
+    </audio>
+
+    <!-- Main Scrapbook Wrapper -->
+    <div class="max-w-3xl mx-auto px-4 pt-10 md:pt-14">
+
+        <!-- PROFILE / HERO SECTION -->
+        <header class="journal-card rounded-3xl p-6 md:p-8 mb-8 relative bg-white text-center">
+            <div class="washi-tape"></div>
+
+            <!-- Avatar & Badges (disesuaikan dengan folder image) -->
+            <div class="relative w-32 h-32 md:w-40 md:h-40 mx-auto mb-4 animate-float">
+                <div class="w-full h-full rounded-full border-4 border-darkText overflow-hidden shadow-md bg-softPink">
+                    <img src="image/profile.jpeg" alt="Profil Aku" class="w-full h-full object-cover">
+                </div>
+                <span class="absolute -bottom-2 -right-2 bg-softYellow border-2 border-darkText px-3 py-1 rounded-full text-xs font-bold font-fredoka shadow">
+                    ✨ Online friend
+                </span>
+            </div>
+
+            <!-- Title & Status -->
+            <h1 class="font-fredoka text-3xl md:text-5xl font-extrabold text-darkText mb-2">
+                Halo! Aku Syifa 
+            </h1>
+            
+            <p class="inline-block bg-pastelPurple border-2 border-darkText text-deepPurple font-bold px-4 py-1.5 rounded-full text-xs md:text-sm mb-4 shadow-sm">
+                🎀 Professional Sleeper ✿ Playlist Curator ✿ Ice Cream Lover 🍦
+            </p>
+
+            <p class="text-sm md:text-base text-gray-700 max-w-lg mx-auto leading-relaxed mb-6 font-medium">
+                Selamat datang di <span class="bg-softPink px-1 rounded">diari digital aku!</span> Di sini tempat aku spill keseharian, playlist favorit, sama hal' lucu. Feel free buat klik-klik tombol di sini yaaa! ✨🌸
+            </p>
+
+            <!-- Mood Indicator -->
+            <div class="inline-flex items-center gap-2 bg-softCyan border-2 border-darkText px-4 py-2 rounded-2xl text-xs font-bold font-fredoka mb-6">
+                <span>Mood Hari Ini:</span>
+                <span class="bg-white border border-darkText px-2 py-0.5 rounded-lg text-hotPink">Sleep & Chill</span>
+            </div>
+
+            <!-- Direct Social Media Links -->
+            <div class="flex flex-wrap justify-center gap-3 font-fredoka" onclick="event.stopPropagation()">
+                <a href="https://www.instagram.com/berangberang223" target="_blank" rel="noopener" class="journal-card bg-gradient-to-r from-pink-400 to-purple-400 text-white px-5 py-2.5 rounded-2xl flex items-center gap-2 text-sm font-bold hover:scale-105 transition-transform">
+                    <i class="fab fa-instagram text-lg"></i> Instagram
+                </a>
+                <a href="https://www.tiktok.com/@lucifrre" target="_blank" rel="noopener" class="journal-card bg-black text-white px-5 py-2.5 rounded-2xl flex items-center gap-2 text-sm font-bold hover:scale-105 transition-transform">
+                    <i class="fab fa-tiktok text-lg text-cyan-300"></i> TikTok
+                </a>
+                <a href="https://open.spotify.com/user/3157ztgpryrz7fupmdof2ov7ania" target="_blank" rel="noopener" class="journal-card bg-green-400 text-darkText px-5 py-2.5 rounded-2xl flex items-center gap-2 text-sm font-bold hover:scale-105 transition-transform">
+                    <i class="fab fa-spotify text-lg"></i> Spotify
+                </a>
+                <button onclick="openDiscordModal()" class="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold px-6 py-2.5 rounded-2xl border-2 border-stone-800 shadow-[4px_4px_0px_#1e293b] flex items-center justify-center gap-3 transition-all hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none">
+                  <i class="fa-brands fa-discord text-2xl"></i>
+                  <span>Chat in Discord</span>
+                  <span class="text-sm">💬</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- INTERACTIVE GRID SECTION -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            
+            <!-- Card 1: Pet Virtual -->
+            <div class="journal-card bg-softPink rounded-3xl p-5 relative overflow-hidden h-fit" onclick="event.stopPropagation()">
+              <div class="flex justify-between items-center mb-3">
+                <span class="text-xs font-bold font-fredoka uppercase tracking-wider text-hotPink bg-white px-3 py-1 rounded-full border border-darkText">PET VIRTUAL</span>
+                <span class="text-2xl animate-bounce">🐱</span>
+              </div>
+              <h3 class="font-fredoka text-lg font-bold text-darkText mb-1">uning si Kucing 🐾</h3>
+              <p class="text-xs text-gray-700 font-medium mb-4">uning butuh perhatian kamu! uning udah dielus berapa kali ya?</p>
+
+              <div class="bg-white rounded-2xl p-3 border-2 border-darkText text-center">
+                <div id="petPetCount" class="font-fredoka text-3xl font-extrabold text-hotPink mb-2">0</div>
+                <button onclick="petMascot()" class="w-full py-2 bg-softYellow border-2 border-darkText rounded-xl font-fredoka text-xs font-bold text-darkText hover:bg-yellow-200 transition-all">
+                  elus uning! ✨
+                </button>
+              </div>
+            </div>
+
+            <!-- Card 2: Fun Facts & Music Widget -->
+            <div class="journal-card bg-pastelPurple rounded-3xl p-6 md:col-span-2 flex flex-col justify-between" onclick="event.stopPropagation()">
+                <div>
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="bg-white border border-darkText text-deepPurple font-bold text-xs px-3 py-1 rounded-full font-fredoka">Fun Facts ✨</span>
+                        <h3 class="font-fredoka text-xl font-bold text-darkText">Secuil Tentang guwe me saya 🌸</h3>
+                    </div>
+                    <ul class="text-xs md:text-sm space-y-2 text-gray-800 font-medium mb-4">
+                        <li class="flex items-center gap-2"><span>🐈</span> <span>aku suka banget sama kucing.</span></li>
+                        <li class="flex items-center gap-2"><span>🍔</span> <span>suka banget makan emhhh ayam penyet segala ayam aku suka.</span></li>
+                        <li class="flex items-center gap-2"><span>🎧</span> <span>sering dengerin musik disegala situasi jgn di tanya lagu apa gua me saya suka semua.</span></li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-2xl p-3 border-2 border-darkText flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-hotPink text-white flex items-center justify-center font-bold text-lg animate-spin" style="animation-duration: 6s;">💿</div>
+                        <div>
+                            <p class="font-fredoka text-xs font-bold text-darkText">Raim Laode</p>
+                            <p class="text-[10px] text-gray-500 font-medium">On Repeat Playlist 🎶</p>
+                        </div>
+                    </div>
+                    <button onclick="toggleMyMusic()" class="bg-softCyan border border-darkText px-3 py-1.5 rounded-full font-bold text-xs shadow-sm transition-all hover:bg-cyan-200">
+                        <span id="soundText">Pop Vibes: OFF</span> <span id="soundIcon">🔇</span>
+                    </button>
+                </div> 
+            </div>
+
+        </div>
+
+        <!-- FAVORITE GAMES SECTION -->
+        <section class="journal-card bg-softCyan rounded-3xl p-6 md:p-8 mb-8" onclick="event.stopPropagation()">
+            <div class="flex items-center justify-between mb-6">
+                <div>
+                    <h2 class="font-fredoka text-2xl md:text-3xl font-extrabold text-darkText">Favorite Games 🎮✨</h2>
+                    <p class="text-xs md:text-sm text-gray-700 font-medium">Game yang sering aku mainin kalau lagi senggang!</p>
+                </div>
+                <span class="text-3xl animate-bounce">👾</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                <div class="bg-white border-2 border-darkText p-3.5 rounded-2xl flex items-center gap-3 shadow-sm hover:scale-105 transition-transform">
+                    <div class="text-3xl bg-softPink p-2 rounded-xl border border-darkText">🎮</div>
+                    <div>
+                        <h3 class="font-fredoka font-bold text-sm text-darkText">Roblox</h3>
+                        <p class="text-[11px] text-gray-500 font-medium">mabar bareng yuks</p>
+                    </div>
+                </div>
+
+                <div class="bg-white border-2 border-darkText p-3.5 rounded-2xl flex items-center gap-3 shadow-sm hover:scale-105 transition-transform">
+                    <div class="text-3xl bg-softYellow p-2 rounded-xl border border-darkText">🕹️</div>
+                    <div>
+                        <h3 class="font-fredoka font-bold text-sm text-darkText">Mobile Legends</h3>
+                        <p class="text-[11px] text-gray-500 font-medium">Mage / Support main 🪄</p>
+                    </div>
+                </div>
+
+                <div class="bg-white border-2 border-darkText p-3.5 rounded-2xl flex items-center gap-3 shadow-sm hover:scale-105 transition-transform">
+                    <div class="text-3xl bg-pastelPurple p-2 rounded-xl border border-darkText">🐱</div>
+                    <div>
+                        <h3 class="font-fredoka font-bold text-sm text-darkText">Minecraft</h3>
+                        <p class="text-[11px] text-gray-500 font-medium">Chill & Chill 🏰</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- POLAROID GALLERY SECTION (disesuaikan dengan folder image) -->
+        <section class="journal-card bg-white rounded-3xl p-6 md:p-8 mb-8" onclick="event.stopPropagation()">
+            <div class="flex items-center justify-between mb-6">
+                <div>
+                    <h2 class="font-fredoka text-2xl md:text-3xl font-extrabold text-darkText">Snapshot Diari 📸</h2>
+                    <p class="text-xs md:text-sm text-gray-600">Foto-foto lucuk yang aku punya!</p>
+                </div>
+                <span class="text-2xl">🎀</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-creamBg border-2 border-darkText p-3 rounded-2xl shadow-sm rotate-[-2deg] hover:rotate-0 transition-transform duration-300">
+                    <div class="h-48 overflow-hidden rounded-xl border border-darkText mb-3">
+                        <img src="image/kucing.png" alt="my cat" class="w-full h-full object-cover">
+                    </div>
+                    <p class="font-fredoka text-center text-xs font-bold text-darkText">my cattt</p>
+                </div>
+
+                <div class="bg-creamBg border-2 border-darkText p-3 rounded-2xl shadow-sm rotate-[3deg] hover:rotate-0 transition-transform duration-300">
+                    <div class="h-48 overflow-hidden rounded-xl border border-darkText mb-3">
+                        <img src="image/aku.jpeg" alt="ini aku" class="w-full h-full object-cover">
+                    </div>
+                    <p class="font-fredoka text-center text-xs font-bold text-darkText">ini aku!</p>
+                </div>
+
+                <div class="bg-creamBg border-2 border-darkText p-3 rounded-2xl shadow-sm rotate-[-1deg] hover:rotate-0 transition-transform duration-300">
+                    <div class="h-48 overflow-hidden rounded-xl border border-darkText mb-3">
+                        <img src="image/lightcity.JPG" alt="light city" class="w-full h-full object-cover">
+                    </div>
+                    <p class="font-fredoka text-center text-xs font-bold text-darkText">light city</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- DIRECT MESSAGE / ANONYMOUS NOTE SENDER -->
+        <section class="journal-card bg-softYellow rounded-3xl p-6 md:p-8 mb-8">
+          <div class="washi-tape"></div>
+
+          <div class="text-center mb-6">
+            <span class="text-3xl">💌</span>
+            <h2 class="font-fredoka text-2xl md:text-3xl font-extrabold text-darkText">Drop Pesan Rahasia!</h2>
+            <p class="text-xs md:text-sm text-gray-700 font-medium">Kirim pesan anonim langsung ke inbox aku! ✨</p>
+          </div>
+
+          <form action="https://formspree.io/f/xwlvboel" method="POST" onsubmit="handleSendDirectMessage(event)" class="space-y-4">
+            <div>
+              <label class="block text-stone-700 font-bold text-sm mb-1">Nama / Panggilan Kamu</label>
+              <input name="nama" id="senderName" type="text" placeholder="Contoh: Teman Rahasia / Ani" class="w-full bg-white border-2 border-darkText rounded-2xl p-3 text-sm">
+            </div>
+
+            <div>
+              <label class="block text-stone-700 font-bold text-sm mb-1">Isi Pesan Lucu Kamu</label>
+              <textarea name="pesan" id="senderMessage" rows="3" placeholder="Halo! Suka banget..." required class="w-full bg-white border-2 border-darkText rounded-2xl p-3 text-sm"></textarea>
+            </div>
+
+            <button type="submit" class="w-full bg-pink-400 text-darkText font-bold py-3 rounded-2xl border-2 border-darkText shadow-md">
+              Kirim Pesan Sekarang! 🚀✨
+            </button>
+          </form>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="text-center text-xs font-fredoka text-gray-500 font-medium">
+            <p class="mb-1">Klik di mana saja di layar buat keluarin hujan emoji! 🌈✨</p>
+            <p>Made with ❤️ by Syifa • © 2026 All Rights Reserved</p>
+        </footer>
+
+    </div>
+
+    <!-- SUCCESS MODAL POPUP -->
+    <div id="successModal" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-300" onclick="closeSuccessModal()">
+        <div class="journal-card bg-white rounded-3xl p-6 max-w-sm w-full text-center relative" onclick="event.stopPropagation()">
+            <div class="text-4xl mb-2 animate-bounce">🎉</div>
+            <h3 class="font-fredoka text-2xl font-bold text-darkText mb-1">Pesan Terkirim!</h3>
+            <p class="text-xs text-gray-600 mb-6 font-medium">Makasih yaa udah mampir dan ngirim pesan lucu! Pesan kamu siap meluncur ✨</p>
+            
+            <button onclick="closeSuccessModal()" class="w-full py-2.5 bg-mintGreen border-2 border-darkText rounded-xl font-fredoka text-xs font-bold text-darkText hover:bg-softYellow transition-all">
+                Sama-Sama! 💕
+            </button>
+        </div>
+    </div>
+
+    <!-- DISCORD MODAL POPUP -->
+    <div id="discordModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center hidden opacity-0 transition-all duration-300">
+      <div class="bg-[#FFFDF9] border-4 border-stone-800 rounded-3xl p-6 max-w-sm w-11/12 text-center shadow-[6px_6px_0px_#1e293b] relative transform scale-95 transition-all duration-300" id="discordModalBox">
+        <button onclick="closeDiscordModal()" class="absolute top-3 right-3 text-stone-800 hover:text-pink-500 font-bold text-xl">✕</button>
+        <div class="text-4xl mb-2">🎮</div>
+        <h3 class="text-2xl font-bold text-stone-800 mb-1">Discord Status</h3>
+        <p class="text-stone-600 text-sm mb-4">Yuk berteman di Discord! Cari aku di username bawah ini:</p>
+        
+        <div class="bg-indigo-100 border-2 border-dashed border-indigo-400 rounded-2xl p-3 flex items-center justify-between gap-2 mb-4">
+          <span id="discordUsername" class="font-bold text-indigo-900 text-lg">jherioss</span>
+          <button onclick="copyDiscordUser()" class="bg-[#5865F2] text-white px-3 py-1 rounded-xl text-xs font-bold hover:bg-[#4752C4] transition-all">
+            Copy 📋
+          </button>
+        </div>
+
+        <p id="copyAlert" class="text-xs text-emerald-600 font-bold hidden mb-2">✨ Username berhasil disalin!</p>
+        
+        <button onclick="closeDiscordModal()" class="w-full bg-pink-300 hover:bg-pink-400 text-stone-800 font-bold py-2 rounded-xl border-2 border-stone-800 shadow-sm transition-all">
+          Tutup
+        </button>
+      </div>
+    </div>
+
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
